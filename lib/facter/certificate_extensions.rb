@@ -21,10 +21,21 @@ require 'openssl'
 require 'puppet'
 require 'puppet/ssl/oids'
 
-Puppet.initialize_settings
+# is there a more elegant way of ascertaining if settings have been initialized already?
+begin
+  ssldir = Puppet.settings[:ssldir]
+rescue
+  Puppet.initialize_settings
+  ssldir = Puppet.settings[:ssldir]
+end
+
+# also try initialising settings if ssldir is empty
+unless ssldir && ssldir != ''
+  Puppet.initialize_settings unless ssldir
+  ssldir = Puppet.settings[:ssldir]
+end
 
 certname = Puppet.settings[:certname]
-ssldir   = Puppet.settings[:ssldir]
 
 oids = {}
 Puppet::SSL::Oids::PUPPET_OIDS.each {|o|
