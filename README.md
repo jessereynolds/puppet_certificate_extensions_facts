@@ -1,6 +1,6 @@
 # Puppet Certificate Extensions Facts
 
-This puppet module provides a custom fact to include all puppet certificate extensions as facts.
+This puppet module provides a custom fact to include all puppet certificate extensions as facts. This allows console based clasification of nodes based on 'trusted' facts embedded in the certificate by making these available as regular facts.
 
 Facts added correspond to each of the X509 certificate extensions
 under Puppet's ppRegCertExt oid namespace, `1.3.6.1.4.1.34380.1.1`. When there are short names defined in
