@@ -1,14 +1,27 @@
 {
   "name": "jesse-certificate_extensions_facts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "jesse",
-  "summary": "Provides custom fact to include all puppet certificate extensions as facts",
-  "license": "Apache 2.0",
+  "summary": "Provides custom fact to include all puppet certificate extensions (trusted facts) as facts",
+  "license": "Apache-2.0",
   "source": "https://github.com/jessereynolds/puppet_certificate_extensions_facts",
   "project_page": "https://github.com/jessereynolds/puppet_certificate_extensions_facts",
   "issues_url": "https://github.com/jessereynolds/puppet_certificate_extensions_facts/issues",
   "dependencies": [
   ],
-  "data_provider": null
+  "data_provider": null,
+  "operatingsystem_support": [
+    {
+      "operatingsystem":"RedHat",
+      "operatingsystemrelease":[ "5.0", "6.0", "7.0" ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "10.04"
+      ]
+    }
+  ]
 }
 
