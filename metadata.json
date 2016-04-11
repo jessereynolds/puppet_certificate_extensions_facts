@@ -1,14 +1,13 @@
 {
-  "name": "jessereynolds-certificate_extensions_facts",
-  "version": "0.1.0",
-  "author": "jessereynolds",
+  "name": "jesse-certificate_extensions_facts",
+  "version": "0.1.1",
+  "author": "jesse",
   "summary": "Provides custom fact to include all puppet certificate extensions as facts",
-  "license": "MIT",
+  "license": "Apache 2.0",
   "source": "https://github.com/jessereynolds/puppet_certificate_extensions_facts",
   "project_page": "https://github.com/jessereynolds/puppet_certificate_extensions_facts",
   "issues_url": "https://github.com/jessereynolds/puppet_certificate_extensions_facts/issues",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
   ],
   "data_provider": null
 }
