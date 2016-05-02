@@ -48,14 +48,19 @@ raw = File.read("#{ssldir}/certs/#{certname}.pem")
 cert = OpenSSL::X509::Certificate.new(raw)
 
 cert.extensions.each {|e|
-  next unless e.oid =~ /^1\.3\.6\.1\.4\.1\.34380\.1\.1/
-  oid_name = "certificate_extension_#{e.oid.gsub(/\./, '_')}"
-  Facter.add(oid_name) do
-    setcode do
-      e.value[2..-1]
+  short_name = nil
+  case e.oid
+  when /^1\.3\.6\.1\.4\.1\.34380\.1\.1/
+    oid_name = "certificate_extension_#{e.oid.gsub(/\./, '_')}"
+    Facter.add(oid_name) do
+      setcode do
+        e.value[2..-1]
+      end
     end
+    short_name = oids[e.oid]
+  when /^pp_/
+    short_name = e.oid
   end
-  short_name = oids[e.oid]
   next unless short_name
   Facter.add(short_name) do
     setcode do
@@ -63,4 +68,3 @@ cert.extensions.each {|e|
     end
   end
 }
-
