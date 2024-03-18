@@ -19,7 +19,7 @@ $ facter certificate_extension_1_3_6_1_4_1_34380_1_1_2
 i-8da75c11
 ```
 
-See [the docs](https://docs.puppet.com/puppet/latest/reference/ssl_attributes_extensions.html#puppet-specific-registered-ids) for the list of oids with short names defined in the puppet agent.
+See [the docs](https://www.puppet.com/docs/puppet/latest/ssl_attributes_extensions.html#puppet_registered_ids) for the list of oids with short names defined in the puppet agent.
 
 Author: Jesse Reynolds; Puppet, Inc.
 
