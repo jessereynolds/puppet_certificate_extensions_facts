@@ -39,26 +39,24 @@ end
 certname = Puppet.settings[:certname]
 
 oids = {}
-Puppet::SSL::Oids::PUPPET_OIDS.each {|o|
-  oids[o[0]] = o[1]
-}
+Puppet::SSL::Oids::PUPPET_OIDS.each { |o| oids[o[0]] = o[1] }
 
 raw = File.read("#{ssldir}/certs/#{certname}.pem")
 
 cert = OpenSSL::X509::Certificate.new(raw)
 
-cert.extensions.each {|e|
+cert.extensions.each do |e|
   short_name = nil
   case e.oid
-  when /^1\.3\.6\.1\.4\.1\.34380\.1\.1/
-    oid_name = "certificate_extension_#{e.oid.gsub(/\./, '_')}"
+  when %r{^1\.3\.6\.1\.4\.1\.34380\.1\.1}
+    oid_name = "certificate_extension_#{e.oid.tr('.', '_')}"
     Facter.add(oid_name) do
       setcode do
         e.value[2..-1]
       end
     end
     short_name = oids[e.oid]
-  when /^pp_/
+  when %r{^pp_}
     short_name = e.oid
   end
   next unless short_name
@@ -67,4 +65,4 @@ cert.extensions.each {|e|
       e.value[2..-1]
     end
   end
-}
+end
