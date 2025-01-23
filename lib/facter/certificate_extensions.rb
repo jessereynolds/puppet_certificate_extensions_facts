@@ -3,17 +3,17 @@
 # the puppet agent code in Puppet::SSL::Oids::PUPPET_OIDS the facts will appear with
 # the short names as the fact names. Eg:
 #
-#   $ facter pp_instance_id
+#   $ facter -p pp_instance_id
 #   i-8da75c11
 #
 # They will also always appear as facts named with oid prefixed with 'certificate_extension_', and with periods translated to underscores Eg:
 #
-#   $ facter certificate_extension_1_3_6_1_4_1_34380_1_1_2
+#   $ facter -p certificate_extension_1_3_6_1_4_1_34380_1_1_2
 #   i-8da75c11
 #
 # See https://docs.puppet.com/puppet/latest/reference/ssl_attributes_extensions.html#puppet-specific-registered-ids for the list of oids with short names defined in the puppet agent.
 #
-# Author: Jesse Reynolds; Puppet, Inc.
+# Author: Jesse Reynolds
 #
 # This fact is subject to the license of this module as per LICENSE.md
 
