@@ -1,6 +1,6 @@
 {
   "name": "jesse-certificate_extensions_facts",
-  "version": "0.1.4",
+  "version": "0.2.1",
   "author": "jesse",
   "summary": "Provides custom fact to include all puppet certificate extensions (trusted facts) as facts",
   "license": "Apache-2.0",
