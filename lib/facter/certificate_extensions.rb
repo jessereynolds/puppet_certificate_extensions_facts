@@ -38,6 +38,8 @@ end
 
 certname = Puppet.settings[:certname]
 
+Puppet::SSL::Oids.register_puppet_oids
+
 oids = {}
 Puppet::SSL::Oids::PUPPET_OIDS.each { |o| oids[o[0]] = o[1] }
 
